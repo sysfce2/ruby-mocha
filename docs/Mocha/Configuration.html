@@ -6,7 +6,7 @@
 <title>
   Class: Mocha::Configuration
   
-    &mdash; Mocha 1.15.0
+    &mdash; Mocha 1.16.0
   
 </title>
 
@@ -305,7 +305,7 @@
 </li>
 
       
-        <li class="public ">
+        <li class="public deprecated">
   <span class="summary_signature">
     
       <a href="#reinstate_undocumented_behaviour_from_v1_9=-instance_method" title="#reinstate_undocumented_behaviour_from_v1_9= (instance method)">#<strong>reinstate_undocumented_behaviour_from_v1_9=</strong>(value)  &#x21d2; Object </a>
@@ -318,12 +318,12 @@
   
   
   
-  
+  <span class="deprecated note title">deprecated</span>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Reinstate undocumented behaviour from v1.9.</p>
+    <span class="summary_desc"><strong>Deprecated.</strong> <div class='inline'>
+<p>Fix deprecation warnings caused by reliance on v1.9 behaviour and remove calls to this method.</p>
 </div></span>
   
 </li>
@@ -536,17 +536,17 @@
       <pre class="lines">
 
 
-317
-318
-319
-320
-321
-322
-323
-324</pre>
+328
+329
+330
+331
+332
+333
+334
+335</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mocha/configuration.rb', line 317</span>
+      <pre class="code"><span class="info file"># File 'lib/mocha/configuration.rb', line 328</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_allow'>allow</span><span class='lparen'>(</span><span class='id identifier rubyid_action'>action</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_block_given?'>block_given?</span>
@@ -641,16 +641,16 @@
       <pre class="lines">
 
 
-396
-397
-398
-399
-400
-401
-402</pre>
+407
+408
+409
+410
+411
+412
+413</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mocha/configuration.rb', line 396</span>
+      <pre class="code"><span class="info file"># File 'lib/mocha/configuration.rb', line 407</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_override'>override</span><span class='lparen'>(</span><span class='id identifier rubyid_temporary_options'>temporary_options</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_original_configuration'>original_configuration</span> <span class='op'>=</span> <span class='id identifier rubyid_configuration'>configuration</span>
@@ -742,17 +742,17 @@
       <pre class="lines">
 
 
-365
-366
-367
-368
-369
-370
-371
-372</pre>
+376
+377
+378
+379
+380
+381
+382
+383</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mocha/configuration.rb', line 365</span>
+      <pre class="code"><span class="info file"># File 'lib/mocha/configuration.rb', line 376</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_prevent'>prevent</span><span class='lparen'>(</span><span class='id identifier rubyid_action'>action</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_block_given?'>block_given?</span>
@@ -845,17 +845,17 @@
       <pre class="lines">
 
 
-341
-342
-343
-344
-345
-346
-347
-348</pre>
+352
+353
+354
+355
+356
+357
+358
+359</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mocha/configuration.rb', line 341</span>
+      <pre class="code"><span class="info file"># File 'lib/mocha/configuration.rb', line 352</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_warn_when'>warn_when</span><span class='lparen'>(</span><span class='id identifier rubyid_action'>action</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_block_given?'>block_given?</span>
@@ -979,7 +979,10 @@ satisfied expectations:
   
 </h3><div class="docstring">
   <div class="discussion">
-    
+    <div class="note deprecated"><strong>Deprecated.</strong> <div class='inline'>
+<p>Fix deprecation warnings caused by reliance on v1.9 behaviour and remove calls to this method.</p>
+</div></div>
+
 <p>Reinstate undocumented behaviour from v1.9</p>
 
 <p>Previously when <span class='object_link'><a href="API.html#mock-instance_method" title="Mocha::API#mock (method)">API#mock</a></span>, <span class='object_link'><a href="API.html#stub-instance_method" title="Mocha::API#stub (method)">API#stub</a></span>, or <span class='object_link'><a href="API.html#stub_everything-instance_method" title="Mocha::API#stub_everything (method)">API#stub_everything</a></span> were called with the first argument being a symbol, they built an <strong>unnamed</strong> mock object <strong>and</strong> expected or stubbed the method identified by the symbol argument; subsequent arguments were ignored. Now these methods build a <strong>named</strong> mock with the name specified by the symbol argument; <strong>no</strong> methods are expected or stubbed and subsequent arguments <strong>are</strong> taken into account.</p>
@@ -1057,7 +1060,7 @@ unsatisfied expectations:
       
         &mdash;
         <div class='inline'>
-<p><code>true</code> to reinstate undocumented behaviour; enabled by default.</p>
+<p><code>true</code> to reinstate undocumented behaviour; disabled by default.</p>
 </div>
       
     </li>
@@ -1071,14 +1074,34 @@ unsatisfied expectations:
       <pre class="lines">
 
 
-297
 298
-299</pre>
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mocha/configuration.rb', line 297</span>
+      <pre class="code"><span class="info file"># File 'lib/mocha/configuration.rb', line 298</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_reinstate_undocumented_behaviour_from_v1_9='>reinstate_undocumented_behaviour_from_v1_9=</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_value'>value</span>
+    <span class='id identifier rubyid_sentence1'>sentence1</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Configuration#reinstate_undocumented_behaviour_from_v1_9= will be removed in the future.</span><span class='tstring_end'>&#39;</span></span>
+    <span class='id identifier rubyid_sentence2'>sentence2</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Fix deprecation warnings caused by reliance on v1.9 behaviour.</span><span class='tstring_end'>&#39;</span></span>
+    <span class='id identifier rubyid_sentence3'>sentence3</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>See docs for API#mock, API#stub, API#stub_everything, Expectation#yields and Expectation#multiple_yields.</span><span class='tstring_end'>&#39;</span></span>
+    <span class='const'>Deprecation</span><span class='period'>.</span><span class='id identifier rubyid_warning'>warning</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='id identifier rubyid_sentence1'>sentence1</span><span class='comma'>,</span> <span class='id identifier rubyid_sentence2'>sentence2</span><span class='comma'>,</span> <span class='id identifier rubyid_sentence3'>sentence3</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'> </span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_sentence1'>sentence1</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Configuration#reinstate_undocumented_behaviour_from_v1_9= is unnecessarily being set to false, because this is now the default value.</span><span class='tstring_end'>&#39;</span></span>
+    <span class='id identifier rubyid_sentence2'>sentence2</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Configuration#reinstate_undocumented_behaviour_from_v1_9= will be removed in the future, so you should avoid calling it.</span><span class='tstring_end'>&#39;</span></span>
+    <span class='const'>Deprecation</span><span class='period'>.</span><span class='id identifier rubyid_warning'>warning</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='id identifier rubyid_sentence1'>sentence1</span><span class='comma'>,</span> <span class='id identifier rubyid_sentence2'>sentence2</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'> </span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
   <span class='ivar'>@options</span><span class='lbracket'>[</span><span class='symbol'>:reinstate_undocumented_behaviour_from_v1_9</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_value'>value</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1167,7 +1190,7 @@ unsatisfied expectations:
     
 <p>Configure whether stubbing methods on non-mock objects is allowed.</p>
 
-<p>If you like the idea of <a href="http://www.jmock.org/oopsla2004.pdf" target="_parent" title="mocking roles not objects">mocking roles not objects</a> and <a href="http://www.mockobjects.com/2007/04/test-smell-mocking-concrete-classes.html" target="_parent" title="you don&amp;#39;t like stubbing concrete classes">you don&#39;t like stubbing concrete classes</a>, this is the setting for you. However, while this restriction makes a lot of sense in Java with its <a href="http://java.sun.com/docs/books/tutorial/java/concepts/interface.html" target="_parent" title="explicit interfaces">explicit interfaces</a>, it may be moot in Ruby where roles are probably best represented as Modules.</p>
+<p>If you like the idea of <a href="http://www.jmock.org/oopsla2004.pdf" target="_parent" title="mocking roles not objects">mocking roles not objects</a> and <a href="http://www.mockobjects.com/2007/04/test-smell-mocking-concrete-classes.html" target="_parent" title="you don’t like stubbing concrete classes">you don’t like stubbing concrete classes</a>, this is the setting for you. However, while this restriction makes a lot of sense in Java with its <a href="http://java.sun.com/docs/books/tutorial/java/concepts/interface.html" target="_parent" title="explicit interfaces">explicit interfaces</a>, it may be moot in Ruby where roles are probably best represented as Modules.</p>
 
 <p>When <code>value</code> is <code>:allow</code>, do nothing. This is the default. When <code>value</code> is <code>:warn</code>, display a warning. When <code>value</code> is <code>:prevent</code>, raise a <span class='object_link'><a href="StubbingError.html" title="Mocha::StubbingError (class)">StubbingError</a></span>.</p>
 
@@ -1339,7 +1362,7 @@ unsatisfied expectations:
     
 <p>Configure whether stubbing of non-existent methods is allowed.</p>
 
-<p>This is useful if you want to ensure that methods you&#39;re mocking really exist. A common criticism of unit tests with mock objects is that such a test may (incorrectly) pass when an equivalent non-mocking test would (correctly) fail. While you should always have some integration tests, particularly for critical business functionality, this Mocha configuration setting should catch scenarios when mocked methods and real methods have become misaligned.</p>
+<p>This is useful if you want to ensure that methods you’re mocking really exist. A common criticism of unit tests with mock objects is that such a test may (incorrectly) pass when an equivalent non-mocking test would (correctly) fail. While you should always have some integration tests, particularly for critical business functionality, this Mocha configuration setting should catch scenarios when mocked methods and real methods have become misaligned.</p>
 
 <p>When <code>value</code> is <code>:allow</code>, do nothing. This is the default. When <code>value</code> is <code>:warn</code>, display a warning. When <code>value</code> is <code>:prevent</code>, raise a <span class='object_link'><a href="StubbingError.html" title="Mocha::StubbingError (class)">StubbingError</a></span>.</p>
 
@@ -1427,7 +1450,7 @@ unsatisfied expectations:
     
 <p>Configure whether stubbing of non-public methods is allowed.</p>
 
-<p>Many people think that it&#39;s good practice only to mock public methods. This is one way to prevent your tests being too tightly coupled to the internal implementation of a class. Such tests tend to be very brittle and not much use when refactoring.</p>
+<p>Many people think that it’s good practice only to mock public methods. This is one way to prevent your tests being too tightly coupled to the internal implementation of a class. Such tests tend to be very brittle and not much use when refactoring.</p>
 
 <p>When <code>value</code> is <code>:allow</code>, do nothing. This is the default. When <code>value</code> is <code>:warn</code>, display a warning. When <code>value</code> is <code>:prevent</code>, raise a <span class='object_link'><a href="StubbingError.html" title="Mocha::StubbingError (class)">StubbingError</a></span>.</p>
 
@@ -1515,9 +1538,9 @@ unsatisfied expectations:
 </div>
 
       <div id="footer">
-  Generated on Wed Sep 21 19:13:39 2022 by
+  Generated on Tue Oct 18 15:15:50 2022 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.28 (ruby-2.7.5).
+  0.9.28 (ruby-3.1.0).
 </div>
 
     </div>
